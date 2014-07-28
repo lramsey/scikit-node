@@ -15,7 +15,6 @@ SK.skLearn = function(module, estimator,methods, cb){
     });
     python.stdout.on('close', function(){
         results = JSON.parse(output);
-        console.log('ouput:',output);
         cb(results);
     });
 };
