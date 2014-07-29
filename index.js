@@ -38,5 +38,15 @@ SK.gradientBoostingClassifier = function(methods, cb, hyperparams){
     });
     return this.skLearn(module, estimator, methods, cb);
 };
+ 
+SK.linearRegression = function(methods, cb, hyperparams){
+    hyperparams = hyperparams || [];
+    var module = 'linear_model';
+    var estimator = ['LinearRegression'];
+    hyperparams.forEach(function(param){
+        estimator.push(param);
+    });
+    return this.skLearn(module, estimator, methods, cb);
+};
 
 module.exports = SK;

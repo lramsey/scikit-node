@@ -25,10 +25,10 @@ for i in range(0, len(methods)):
         params.append(param)
     
     if(methodName == 'fit'):
-        estimator.fit(*methods[i])
+        estimator.fit(*params)
     else:
         method = eval('estimator.' + methodName)
-        data = method(*methods[i])
+        data = method(*params)
         results[methodName] = data
 
     

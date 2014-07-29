@@ -1,6 +1,6 @@
 {
   "name": "scikit-node",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "node wrapper for python's scikit-learn",
   "main": "index.js",
   "scripts": {
