@@ -6,10 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type":"git",
+    "url": "https://github.com/lramsey/scikit-node.git"
+  },
   "keywords": [
     "scikit-learn",
     "machine learning"
   ],
-  "author": "Luke Ramsey",
-  "license": "MIT"
+  "author": "Luke Ramsey" "<lramsey177@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lramsey/scikit-node/issues"
+  }
 }
