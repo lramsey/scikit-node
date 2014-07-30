@@ -60,9 +60,11 @@ The methods argument here is the same as the one above in the skLearn method.  T
 
 Here are the helper methods that have been added so far.
 
-    randomForestClassifier  
-    gradientBoostingClassifier  
-    linearRegression  
+    randomForestClassifier
+    gradientBoostingClassifier
+    linearRegression
+    kMeans
+    minMaxScaler
 
 If you want a certain helper method added to Scikit-Node, please feel free to submit a github issues request or send me an email at lramsey177@gmail.com.  Contributors are welcome to submit pull requests as well to add new helper methods to Scikit-Node.
 

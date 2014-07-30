@@ -49,4 +49,24 @@ SK.linearRegression = function(methods, cb, hyperparams){
     return this.skLearn(module, estimator, methods, cb);
 };
 
+SK.kMeans = function(methods, cb, hyperparams){
+    hyperparams = hyperparams || [];
+    var module = 'cluster';
+    var estimator = ['KMeans'];
+    hyperparams.forEach(function(param){
+        estimator.push(param);
+    });
+    return this.skLearn(module, estimator, methods, cb);
+};
+
+SK.minMaxScaler = function(methods, cb, hyperparams){
+    hyperparams = hyperparams || [];
+    var module = 'preprocessing';
+    var estimator = ['MinMaxScaler'];
+    hyperparams.forEach(function(param){
+        estimator.push(param);
+    });
+    return this.skLearn(module, estimator, methods, cb);
+};
+
 module.exports = SK;

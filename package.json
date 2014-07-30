@@ -17,6 +17,7 @@
   "author": "Luke Ramsey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lramsey/scikit-node/issues"
+    "url": "https://github.com/lramsey/scikit-node/issues",
+    "email": "lramsey177@gmail.com"
   }
 }
