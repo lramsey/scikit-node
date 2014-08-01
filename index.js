@@ -1,72 +1,22 @@
-var child = require('child_process');
+var sk = require('./learn');
+var cluster = require('./modules/cluster');
+var ensemble = require('./modules/ensemble');
+var linear_model = require('./modules/linear_model');
+var preprocessing = require('./modules/preprocessing');
 
-var SK = {};
-SK.skLearn = function(module, estimator,methods, cb){
-    cb = cb || function(){};
-    arg = JSON.stringify([module, estimator, methods]);
-    python = child.spawn(
-        'python', [__dirname + '/lib/experiment.py', arg]);
-    output = '';
-    python.stdout.on('data', function(data){
-        output += data;
-    });
-    python.stdout.on('error', function(err){
-        throw new Error(err);
-    });
-    python.stdout.on('close', function(){
-        results = JSON.parse(output);
-        cb(results);
+var _extend = function(obj1){
+    var objs = Array.prototype.slice.call(arguments,1);
+    objs.forEach(function(obj){
+        for(var key in obj){
+            obj1[key] = obj[key];
+        }
     });
 };
 
-SK.randomForestClassifier = function(methods, cb, hyperparams){
-    hyperparams = hyperparams || [];
-    var module    = 'ensemble';
-    var estimator = ['RandomForestClassifier'];
-    hyperparams.forEach(function(param){
-        estimator.push(param);
-    });
-    return this.skLearn(module, estimator, methods, cb);
+_extend(sk, cluster, ensemble, linear_model, preprocessing);
+
+sk.allModules = function(){
+    return { 'cluster':sk.clusterAlgorithms, 'ensemble':sk.ensembleAlgorithms, 'linear_model':sk.linear_modelAlgorithms, 'preprocessing':sk.preprocessing };
 };
 
-SK.gradientBoostingClassifier = function(methods, cb, hyperparams){
-    hyperparams = hyperparams || [];
-    var module    = 'ensemble';
-    var estimator = ['GradientBoostingClassifier'];
-    hyperparams.forEach(function(param){
-        estimator.push(param);
-    });
-    return this.skLearn(module, estimator, methods, cb);
-};
- 
-SK.linearRegression = function(methods, cb, hyperparams){
-    hyperparams = hyperparams || [];
-    var module = 'linear_model';
-    var estimator = ['LinearRegression'];
-    hyperparams.forEach(function(param){
-        estimator.push(param);
-    });
-    return this.skLearn(module, estimator, methods, cb);
-};
-
-SK.kMeans = function(methods, cb, hyperparams){
-    hyperparams = hyperparams || [];
-    var module = 'cluster';
-    var estimator = ['KMeans'];
-    hyperparams.forEach(function(param){
-        estimator.push(param);
-    });
-    return this.skLearn(module, estimator, methods, cb);
-};
-
-SK.minMaxScaler = function(methods, cb, hyperparams){
-    hyperparams = hyperparams || [];
-    var module = 'preprocessing';
-    var estimator = ['MinMaxScaler'];
-    hyperparams.forEach(function(param){
-        estimator.push(param);
-    });
-    return this.skLearn(module, estimator, methods, cb);
-};
-
-module.exports = SK;
+module.exports = sk;

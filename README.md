@@ -18,7 +18,7 @@ This module is currently in beta, so feedback and contributions would be appreci
 
 In order to run Scikit-Node, there are several dependencies that need to be present.  The first step would be to make sure node.js, npm, and a python verison of >= 27. or >= 3.2 has been installed.  To install these items, I would recommend checking out http://nodejs.org/download/ and https://www.python.org/download/.
 
-In addition, there are several python modules that need to be installed for the module to function properly.  These modules are scikit-learn, numpy, and jsonpickle.  For install instructions for scikit-learn and numpy, please go to http://scikit-learn.org/stable/install.html.  For jsonpickle, please go to http://jsonpickle.github.io/#download-install.  Some additional python modules used in this project are importlib, argparse and ast.  These modules are all included in the Python Standard Library, so there should be no need to download them.
+In addition, there are several python modules that need to be installed for the module to function properly.  These modules are scikit-learn, numpy, and jsonpickle.  For install instructions for scikit-learn and numpy, please go to http://scikit-learn.org/stable/install.html.  The version of scikit-node I have used in producing this module is 0.15.  For jsonpickle, please go to http://jsonpickle.github.io/#download-install.  Some additional python modules used in this project are importlib, argparse and ast.  These modules are all included in the Python Standard Library, so there should be no need to download them.
 
 Once these dependencies are installed, add the Scikit-Node module to your project by typing 'npm install scikit-node' into the terminal.
 
@@ -50,7 +50,7 @@ The callback argument is a function that runs once the python process has stream
 
 ## <a name='halp' href='#'/> Helper Methods
 
-On top of the skLearn method, there are also several helper methods which make using the module easier.  Using the helper methods, one would not need to put parameters in for the module and estimator, but instead would just need to choose the correct method for a desired estimator.  The helper method calls the skLearn method, passing in the desired module and estimator for you.
+On top of the skLearn method, there are also several helper methods which make using the module easier.  Using the helper methods, one would not need to put parameters in for the module and estimator, but instead would just need to choose the correct method for a desired estimator.  The helper method calls the skLearn method, passing in the desired module and estimator for you.  Some of the helper methods may not work if you have a scikit-learn version of 0.14 or earlier, as version 0.15 has some new methods that earlier versions lacked.
 
 All these helper methods expect the same kind of arguments.  One example of such a helper method is the randomForestClassifier method.
 
@@ -58,14 +58,19 @@ All these helper methods expect the same kind of arguments.  One example of such
 
 The methods argument here is the same as the one above in the skLearn method.  The callback parameter allows you to use the results of your scikit-learn methods in node.  The hyperparams argument contains an array that holds all the hyperparams that will be passed to a scikit-learn estimator.
 
-Here are the helper methods that have been added so far.
+Helper methods from these below scikit-learn modules have been added to scikit-node.
 
-    randomForestClassifier
-    gradientBoostingClassifier
-    linearRegression
-    kMeans
-    minMaxScaler
+    cluster
+    ensemble
+    linear_model
+    preprocessing
 
-If you want a certain helper method added to Scikit-Node, please feel free to submit a github issues request or send me an email at lramsey177@gmail.com.  Contributors are welcome to submit pull requests as well to add new helper methods to Scikit-Node.
+To investigate the helper methods that have been added to each module, there is an algorithm checker method for each module.  They are of the format 'moduleAlgorithms', where the word module is replaced by the actual name of the desired module.
+    
+    clusterAlgorthms()
+
+This algorithm checker method will return an object where the keys are each helper method from that module in scikit-node, and the values are the functions themselves for that module.
+
+If you want a certain module or helper method added to Scikit-Node, please feel free to submit a github issues request or send me an email at lramsey177@gmail.com.  Contributors are welcome to submit pull requests as well to add new helper methods to Scikit-Node.
 
 [Contents](#contents)
