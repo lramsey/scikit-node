@@ -2,6 +2,7 @@ var sk = require('./learn');
 var cluster = require('./modules/cluster');
 var ensemble = require('./modules/ensemble');
 var linear_model = require('./modules/linear_model');
+var neighbors = require('./modules/neighbors');
 var preprocessing = require('./modules/preprocessing');
 
 var _extend = function(obj1){
@@ -13,7 +14,7 @@ var _extend = function(obj1){
     });
 };
 
-_extend(sk, cluster, ensemble, linear_model, preprocessing);
+_extend(sk, cluster, ensemble, linear_model, neighbors, preprocessing);
 
 sk.allModules = function(){
     return { 'cluster':sk.clusterAlgorithms, 'ensemble':sk.ensembleAlgorithms, 'linear_model':sk.linear_modelAlgorithms, 'preprocessing':sk.preprocessing };
