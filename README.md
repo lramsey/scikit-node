@@ -32,7 +32,7 @@ To use the Scikit-Node npm module, begin by requiring the module.
 
 All methods of the Scikit-Node module arise from the skLearn method.
 
-    sk.skLearn(module, estimator, method, callback)
+    sk.skLearn(module, estimator, methods, callback)
 
 This function requires four arguments.  The module argument is a string that mentions which scikit-learn module is needed.  For example, if one wanted to use the RandomForestClassifier estimator, this estimator needs to be accessed on the ensemble module in scikit learn.
     
@@ -44,7 +44,7 @@ The second estimator contains an array, where index 0 of the array is a string r
 
 The methods argument contains an array of arrays.  Each inner array contains a method on the chosen estimator at index 0.  All succeeding indexes in each inner arrray contains arguments for that method.
 
-    method = ['fit', X, Y]
+    methods = ['fit', X, Y]
 
 The callback argument is a function that runs once the python process has streamed its results to node.  This callback function gives you direct access to the results of the scikit-learn methods.  The results of every scikit-learn method except fit will be added to a results array, which is ordered based on the order methods were placed in the methods parameter.
 
