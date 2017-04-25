@@ -1,4 +1,4 @@
-#Scikit-Node NPM Module
+<h1>Scikit-Node NPM Module</h1>
 
 ## <a name='contents' href='#'> Contents</a>
 
@@ -14,7 +14,7 @@ Scikit-Node is an npm wrapper for Python's scikit-learn library.  Using this mod
 
 This module is currently in beta, so feedback and contributions would be appreciated!  I am available by email at lramsey177@gmail.com or through a github issues request.
 
-## <a name='setup' href='#'> Set Up Process></a>
+## <a name='setup' href='#'> Set Up Process</a>
 
 In order to run Scikit-Node, there are several dependencies that need to be present.  The first step would be to make sure node.js, npm, and a python verison of >= 27. or >= 3.2 has been installed.  To install these items, I would recommend checking out http://nodejs.org/download/ and https://www.python.org/download/.
 
