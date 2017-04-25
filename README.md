@@ -1,6 +1,6 @@
 #Scikit-Node NPM Module
 
-##<a name='contents' href='#'/> Contents
+## <a name='contents' href='#'> Contents</a>
 
 [What is Scikit-Node?](#about)  
 [Setup Process](#setup)  
@@ -8,13 +8,13 @@
 [skLearn](#sk)  
 [Helper Methods](#halp)  
 
-## <a name='about' href='#'/> What is Scikit-Node
+## <a name='about' href='#'> What is Scikit-Node </a>
 
 Scikit-Node is an npm wrapper for Python's scikit-learn library.  Using this module, you can use scikit-learn a node.js server.  To learn more about scikit-learn, please go to http://scikit-learn.org/stable/.  The methods on the Scikit-node Module spawn a python process that executes scikit-learn estimators and methods.  The results from these algorithms are then streamed up to node.
 
 This module is currently in beta, so feedback and contributions would be appreciated!  I am available by email at lramsey177@gmail.com or through a github issues request.
 
-## <a name='setup' href='#'/>  Set Up Process
+## <a name='setup' href='#'> Set Up Process></a>
 
 In order to run Scikit-Node, there are several dependencies that need to be present.  The first step would be to make sure node.js, npm, and a python verison of >= 27. or >= 3.2 has been installed.  To install these items, I would recommend checking out http://nodejs.org/download/ and https://www.python.org/download/.
 
@@ -22,13 +22,13 @@ In addition, there are several python modules that need to be installed for the 
 
 Once these dependencies are installed, add the Scikit-Node module to your project by typing 'npm install scikit-node' into the terminal.
 
-## <a name='use' href='#'/> API
+## <a name='use' href='#'> API</a>
 
 To use the Scikit-Node npm module, begin by requiring the module.
 
     sk = require('scikit-node')
 
-## <a name='sk' href='#'/> skLearn
+## <a name='sk' href='#'> skLearn</a>
 
 All methods of the Scikit-Node module arise from the skLearn method.
 
@@ -48,7 +48,7 @@ The methods argument contains an array of arrays.  Each inner array contains a m
 
 The callback argument is a function that runs once the python process has streamed its results to node.  This callback function gives you direct access to the results of the scikit-learn methods.  The results of every scikit-learn method except fit will be added to a results array, which is ordered based on the order methods were placed in the methods parameter.
 
-## <a name='halp' href='#'/> Helper Methods
+## <a name='halp' href='#'> Helper Methods</a>
 
 On top of the skLearn method, there are also several helper methods which make using the module easier.  Using the helper methods, one would not need to put parameters in for the module and estimator, but instead would just need to choose the correct method for a desired estimator.  The helper method calls the skLearn method, passing in the desired module and estimator for you.  Some of the helper methods may not work if you have a scikit-learn version of 0.14 or earlier, as version 0.15 has some new methods that earlier versions lacked.
 
